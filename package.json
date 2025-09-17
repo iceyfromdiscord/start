@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node ."
   },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
   "author": "iceyfromdiscord",
   "license": "MIT"
 }
