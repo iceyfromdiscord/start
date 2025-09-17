@@ -1,0 +1,11 @@
+{
+  "name": "runner",
+  "version": "1.0.0",
+  "description": "runner",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "iceyfromdiscord",
+  "license": "MIT"
+}
