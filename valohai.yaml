@@ -1,0 +1,9 @@
+- step:
+    name: custom-gpu-step
+    image: neomatrix369/dl4j-nlp-cuda:v0.5
+    command:
+      - cd ${VH_REPOSITORY_DIR}
+      - export BACKEND=gpu
+      - nvidia-smi
+      - python3 your_script.py --use-gpu
+    environment: aws-eu-west-1-g3-4xlarge
