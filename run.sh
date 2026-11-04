@@ -7,19 +7,31 @@ SESSION="amazingness"
 CPU=false
 GPU=false
 SILENT=false
+MODE_SELECTED=false
 
-if [[ $# -eq 0 ]]; then
+for arg in "$@"; do
+    case "$arg" in
+        --cpu|-c)
+            CPU=true
+            MODE_SELECTED=true
+            ;;
+        --gpu|-g)
+            GPU=true
+            MODE_SELECTED=true
+            ;;
+        -s|--silent)
+            SILENT=true
+            ;;
+        *)
+            echo "Unknown argument: $arg"
+            exit 1
+            ;;
+    esac
+done
+
+if ! $MODE_SELECTED; then
     CPU=true
     GPU=true
-else
-    for arg in "$@"; do
-        case "$arg" in
-            --cpu|-c) CPU=true ;;
-            --gpu|-g) GPU=true ;;
-            -s|--silent) SILENT=true ;;
-            *) echo "Unknown argument: $arg"; exit 1 ;;
-        esac
-    done
 fi
 
 for cmd in wget chmod mkdir rm sudo tmux; do
