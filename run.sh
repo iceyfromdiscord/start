@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
@@ -37,8 +36,7 @@ fi
 sudo -v
 
 if tmux has-session -t "$SESSION" 2>/dev/null; then
-    echo "Session already exists: $SESSION"
-    exit 1
+    tmux kill-session -t "$SESSION"
 fi
 
 sudo rm -rf -- "$WORKDIR"
